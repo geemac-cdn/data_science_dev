@@ -24,4 +24,5 @@
     },
     "remoteUser": "developer",
     "forwardPorts": [8888, 4040, 8080, 8081, 7077, 8050, 8793],
+    "runArgs": ["--network=bridge"]
 }

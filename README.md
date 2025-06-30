@@ -36,7 +36,6 @@ The container is optimized for data engineering and data science workflows that 
 
 - **Pre-built Image:** Pulls directly from Docker Hub for a fast, firewall-friendly setup.
 - **Apache Spark 3.5.3:** Pre-installed and configured to start automatically.
-- **Python 3.11:** Includes essential data science libraries managed via `requirements.txt`.
 - **Google Cloud SDK:** Ready for BigQuery authentication and access.
 - **VS Code Integration:** Comes with recommended extensions for Python and GCP development.
 - **Isolated Environment:** All dependencies are self-contained.
@@ -59,8 +58,8 @@ This setup uses a pre-built image, so you do not need to build the container loc
 
 1.  **Clone this Repository:**
     ```bash
-    git clone https://your-repo-url/pyspark-dev-container.git
-    cd pyspark-dev-container
+    git clone https://github.com/geemac-cdn/data_science_dev.git
+        cd pyspark-dev-container
     ```
 
 2.  **Open in VS Code:**
@@ -137,7 +136,7 @@ To configure SSH access for Git:
 
 ## 📚 Included Libraries
 
-The environment comes with these key Python packages pre-installed. See `requirements.txt` for the full list.
+The environment comes with these key Python packages pre-installed. See `package_list.txt` for the full list.
 
 | Library                 | Description                                                 |
 | ----------------------- | ----------------------------------------------------------- |

@@ -1,12 +1,11 @@
 {
-    "name": "Python Data Science & Big Data Environment",
-    "image": "mclg/data-science-container:1.5",
+    "name": "Python Data Science & Big Data Environment v1.6 (Pre-built)",
+    "image": "mclg/data-science-container:1.6",
     "customizations": {
         "vscode": {
             "extensions": [
                 "ms-python.python",
                 "ms-python.vscode-pylance",
-                "ms-toolsai.jupyter",
                 "ms-python.black-formatter",
                 "ms-python.flake8",
                 "ms-python.mypy-type-checker",
@@ -18,11 +17,29 @@
                 "python.formatting.provider": "black",
                 "python.linting.enabled": true,
                 "python.linting.flake8Enabled": true,
-                "python.linting.mypyEnabled": true
+                "python.linting.mypyEnabled": true,
+                "terminal.integrated.defaultProfile.linux": "bash"
             }
         }
     },
-    "remoteUser": "developer",
-    "forwardPorts": [8888, 4040, 8080, 8081, 7077, 8050, 8793],
-    "runArgs": ["--network=bridge"]
+    // The user in the v1.6 image is 'vscode'
+    "remoteUser": "vscode",
+    // Set the default folder to open inside the container.
+    "workspaceFolder": "/workspace",
+    // This property explicitly mounts the local project folder into the container's workspace.
+    "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+    // Forward the necessary ports, excluding the one for Jupyter
+    "forwardPorts": [
+        4040, // Spark UI
+        8080, // Spark Master UI
+        8081, // Spark Worker UI
+        8050, // Dash/Plotly
+        8793  // Spark History Server (if enabled)
+    ],
+    // This command is essential to start the Spark services, as they do not auto-start in the image.
+    "postStartCommand": "bash -c '$SPARK_HOME/sbin/start-master.sh && $SPARK_HOME/sbin/start-worker.sh spark://localhost:7077'",
+    // Retaining the runArgs from the previous version
+    "runArgs": [
+        "--network=bridge"
+    ]
 }

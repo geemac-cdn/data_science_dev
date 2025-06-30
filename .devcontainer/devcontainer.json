@@ -40,6 +40,6 @@
     "postStartCommand": "bash -c '$SPARK_HOME/sbin/start-master.sh && $SPARK_HOME/sbin/start-worker.sh spark://localhost:7077'",
     // Retaining the runArgs from the previous version
     "runArgs": [
-        "--network=bridge"
+        "--net=host"
     ]
 }

@@ -1,0 +1,37 @@
+# Data Processing
+numpy
+pandas
+polars
+openpyxl
+xlrd
+xlwt
+
+# Scientific & ML
+scikit-learn
+matplotlib
+seaborn
+plotly
+catboost
+
+# Development & Tooling
+ipykernel
+pytest
+black
+flake8
+mypy
+python-dotenv
+requests
+cryptography
+psutil
+bandit
+safety
+
+# Spark & Big Data
+pyspark==3.5.3
+delta-spark
+
+# Google Cloud
+google-cloud-bigquery
+google-cloud-bigquery-storage
+pandas-gbq
+db-dtypes

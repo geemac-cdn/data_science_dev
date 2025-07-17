@@ -1,6 +1,6 @@
 {
-    "name": "Python Data Science & Big Data Environment v1.6 (Pre-built)",
-    "image": "mclg/data-science-container:1.6",
+    "name": "Python Data Science & Big Data Environment v1.7 (Pre-built)",
+    "image": "mclg/data-science-container:1.7",
     "customizations": {
         "vscode": {
             "extensions": [
@@ -22,23 +22,17 @@
             }
         }
     },
-    // The user in the v1.6 image is 'vscode'
     "remoteUser": "vscode",
-    // Set the default folder to open inside the container.
     "workspaceFolder": "/workspace",
-    // This property explicitly mounts the local project folder into the container's workspace.
     "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
-    // Forward the necessary ports, excluding the one for Jupyter
     "forwardPorts": [
-        4040, // Spark UI
-        8080, // Spark Master UI
-        8081, // Spark Worker UI
-        8050, // Dash/Plotly
-        8793  // Spark History Server (if enabled)
+        4040,
+        8080,
+        8081,
+        8090,
+        8050,
+        8793
     ],
-    // This command is essential to start the Spark services, as they do not auto-start in the image.
-    "postStartCommand": "bash -c '$SPARK_HOME/sbin/start-master.sh && $SPARK_HOME/sbin/start-worker.sh spark://localhost:7077'",
-    // Retaining the runArgs from the previous version
     "runArgs": [
         "--net=host"
     ]

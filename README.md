@@ -1,10 +1,4 @@
-﻿Of course. Working with a pre-built image changes the user's perspective significantly. The `README.md` should focus on how to *use* the container, not how to *build* it.
-
-Based on this new premise, I have revised the `README.md` to reflect the final state of our container (v1.7) and to be a user guide for the pre-built image available on a container registry like Docker Hub.
-
-### Revised `README.md`
-
-# Data Science Dev Container for VS Code (GCP + Spark)
+﻿# Data Science Dev Container for VS Code (GCP + Spark)
 
 ![Version](https://img.shields.io/badge/Version-1.7-blue)
 ![Updated](https://img.shields.io/badge/Updated-July%202025-green)
